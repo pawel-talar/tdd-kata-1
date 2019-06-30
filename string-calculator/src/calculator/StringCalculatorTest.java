@@ -22,4 +22,9 @@ public class StringCalculatorTest {
         StringCalculator t = new StringCalculator();
         Assert.assertEquals(42, t.Add("40,2"));
     }
+    @Test
+    public void testStringWithMoreThanTwoNumbers() {
+        StringCalculator t = new StringCalculator();
+        Assert.assertEquals(55, t.Add("40,2,1,2,10"));
+    }
 }
