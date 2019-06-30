@@ -37,4 +37,11 @@ public class StringCalculatorTest {
         StringCalculator t = new StringCalculator();
         Assert.assertEquals(55, t.Add("40\n2\n1\n2\n10"));
     }
+    @Test
+    public void testStringWithAdditionalDelimiter() {
+        StringCalculator t = new StringCalculator();
+        String test = "\\xx\n40xx2xx3";
+        System.out.println(test.length());
+        Assert.assertEquals(45, t.Add(test));
+    }
 }
