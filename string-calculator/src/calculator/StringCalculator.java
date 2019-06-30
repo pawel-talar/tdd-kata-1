@@ -1,7 +1,9 @@
 package calculator;
 
+import java.util.ArrayList;
+
 public class StringCalculator {
-    public int Add(String input) {
+    public int Add(String input) throws NegativeNumberException {
         if(input == "")
             return 0;
         String additionalDelimiter = ",";
@@ -18,12 +20,18 @@ public class StringCalculator {
             }
             input = input.substring(i+1);
         }
+        ArrayList<Integer> negatives = new ArrayList<Integer>();
         if(input.contains(",") || input.contains("\n") || input.contains(additionalDelimiter)) {
             String[] nums = input.split(",|\\n|"+additionalDelimiter);
             int sum = 0;
             for(String num : nums) {
-                sum += Integer.parseInt(num);
+                Integer x = Integer.parseInt(num);
+                if(x < 0)
+                    negatives.add(x);
+                sum += x;
             }
+            if (negatives.size() > 0)
+                throw new NegativeNumberException(negatives);
             return sum;
         }
         else
