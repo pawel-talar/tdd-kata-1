@@ -27,4 +27,9 @@ public class StringCalculatorTest {
         StringCalculator t = new StringCalculator();
         Assert.assertEquals(55, t.Add("40,2,1,2,10"));
     }
+    @Test
+    public void testStringWithTwoDiffrentDelimiters() {
+        StringCalculator t = new StringCalculator();
+        Assert.assertEquals(55, t.Add("40,2\n1,2\n10"));
+    }
 }
