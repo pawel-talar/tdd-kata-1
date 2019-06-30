@@ -64,7 +64,7 @@ public class StringCalculatorTest {
     @Test
     public void testStringWithAdditionalDelimiter() {
         StringCalculator t = new StringCalculator();
-        String test = "\\xx\n40xx2xx3";
+        String test = "\\x\n40x2x3";
         try {
             Assert.assertEquals(45, t.Add(test));
         } catch (NegativeNumberException e) {
@@ -74,8 +74,7 @@ public class StringCalculatorTest {
     @Test
     public void testThrowingNegativeNumbersException() {
         StringCalculator t = new StringCalculator();
-        String test = "\\xx\n-1xx2xx-3";
-        System.out.println(test.length());
+        String test = "\\x\n-1x2x-3";
         try {
             t.Add(test);
         } catch (NegativeNumberException e) {
@@ -87,6 +86,16 @@ public class StringCalculatorTest {
         StringCalculator t = new StringCalculator();
         try {
             Assert.assertEquals(3, t.Add("1,2,1000"));
+        } catch (NegativeNumberException e) {
+            e.printStackTrace();
+        }
+    }
+    @Test
+    public void testStringWithNewMulticharDelimeter() {
+        StringCalculator t = new StringCalculator();
+        String test = "\\[xx]\n40xx2xx3";
+        try {
+            Assert.assertEquals(45, t.Add(test));
         } catch (NegativeNumberException e) {
             e.printStackTrace();
         }

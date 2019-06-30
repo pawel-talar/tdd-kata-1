@@ -7,18 +7,22 @@ public class StringCalculator {
         if(input == "")
             return 0;
         String additionalDelimiter = ",";
-        if(input.charAt(0) == '\\')
-        {
-            int i;
-            additionalDelimiter = "";
-            for(i = 1; i < input.length(); i++) {
-                if (input.charAt(i) != '\n') {
-                    additionalDelimiter += input.charAt(i);
-                }
-                else
-                    break;
+        if(input.charAt(0) == '\\') {
+            if(input.charAt(1) != '[') {
+                additionalDelimiter = "" + input.charAt(1);
+                input = input.substring(3);
             }
-            input = input.substring(i+1);
+            else {
+                int i;
+                additionalDelimiter = "";
+                for (i = 2; i < input.length(); i++) {
+                    if (input.charAt(i) != ']') {
+                        additionalDelimiter += input.charAt(i);
+                    } else
+                        break;
+                }
+                input = input.substring(i + 2);
+            }
         }
         ArrayList<Integer> negatives = new ArrayList<Integer>();
         if(input.contains(",") || input.contains("\n") || input.contains(additionalDelimiter)) {
