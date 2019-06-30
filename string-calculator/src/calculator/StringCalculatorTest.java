@@ -17,4 +17,9 @@ public class StringCalculatorTest {
         StringCalculator t = new StringCalculator();
         Assert.assertEquals(10, t.Add("10"));
     }
+    @Test
+    public void testStringWithTwoNumbers() {
+        StringCalculator t = new StringCalculator();
+        Assert.assertEquals(42, t.Add("40,2"));
+    }
 }
