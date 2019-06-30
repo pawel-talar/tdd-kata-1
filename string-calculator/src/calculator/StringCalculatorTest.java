@@ -82,4 +82,13 @@ public class StringCalculatorTest {
             Assert.assertEquals("NegativeNumberException[-1-3]", e.toString());
         }
     }
+    @Test
+    public void testStringWithGreaterOrEqualNumbersThanThousand() {
+        StringCalculator t = new StringCalculator();
+        try {
+            Assert.assertEquals(3, t.Add("1,2,1000"));
+        } catch (NegativeNumberException e) {
+            e.printStackTrace();
+        }
+    }
 }

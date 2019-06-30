@@ -28,7 +28,8 @@ public class StringCalculator {
                 Integer x = Integer.parseInt(num);
                 if(x < 0)
                     negatives.add(x);
-                sum += x;
+                if(x < 100)
+                    sum += x;
             }
             if (negatives.size() > 0)
                 throw new NegativeNumberException(negatives);
