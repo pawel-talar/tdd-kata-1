@@ -100,4 +100,14 @@ public class StringCalculatorTest {
             e.printStackTrace();
         }
     }
+    @Test
+    public void testStringWithMultipleNewDelimeters() {
+        StringCalculator t = new StringCalculator();
+        String test = "\\[x][y]\n40x2y3";
+        try {
+            Assert.assertEquals(45, t.Add(test));
+        } catch (NegativeNumberException e) {
+            e.printStackTrace();
+        }
+    }
 }
