@@ -10,13 +10,13 @@ public class StringCalculator {
             return l;
         }
         String DelimetersRegex = ",|\\n";
-        if(input.charAt(0) == '\\') {
-            if(input.charAt(1) != '[') {
-                DelimetersRegex = DelimetersRegex + '|' + input.charAt(1);
-                input = input.substring(3);
+        if(input.substring(0, 2).equals("//")) {
+            if(input.charAt(2) != '[') {
+                DelimetersRegex = DelimetersRegex + '|' + input.charAt(2);
+                input = input.substring(4);
             }
             else {
-                input = input.substring(1);
+                input = input.substring(2);
                 int k = 0;
                 while(input.charAt(0) == '[') {
                     k++;
@@ -37,8 +37,8 @@ public class StringCalculator {
         }
         String[] nums = input.split(DelimetersRegex);
         for(String num : nums) {
-                Integer x = Integer.parseInt(num);
-                l.add(x);
+            Integer x = Integer.parseInt(num);
+            l.add(x);
         }
         return l;
     }

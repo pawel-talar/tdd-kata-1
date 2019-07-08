@@ -64,7 +64,7 @@ public class StringCalculatorTest {
     @Test
     public void testStringWithAdditionalDelimiter() {
         StringCalculator t = new StringCalculator();
-        String test = "\\x\n40x2x3";
+        String test = "//x\n40x2x3";
         try {
             Assert.assertEquals(45, t.Add(test));
         } catch (NegativeNumberException e) {
@@ -74,7 +74,7 @@ public class StringCalculatorTest {
     @Test
     public void testThrowingNegativeNumbersException() {
         StringCalculator t = new StringCalculator();
-        String test = "\\x\n-1x2x-3";
+        String test = "//x\n-1x2x-3";
         try {
             t.Add(test);
         } catch (NegativeNumberException e) {
@@ -93,7 +93,7 @@ public class StringCalculatorTest {
     @Test
     public void testStringWithNewMulticharDelimeter() {
         StringCalculator t = new StringCalculator();
-        String test = "\\[xx]\n40xx2xx3";
+        String test = "//[xx]\n40xx2xx3";
         try {
             Assert.assertEquals(45, t.Add(test));
         } catch (NegativeNumberException e) {
@@ -103,7 +103,7 @@ public class StringCalculatorTest {
     @Test
     public void testStringWithMultipleNewDelimeters() {
         StringCalculator t = new StringCalculator();
-        String test = "\\[x][y]\n40x2y3";
+        String test = "//[xxx][yy]\n40xxx2yy3";
         try {
             Assert.assertEquals(45, t.Add(test));
         } catch (NegativeNumberException e) {
